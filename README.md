@@ -1,0 +1,1 @@
+To create site run build.py to generate page

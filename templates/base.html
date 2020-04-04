@@ -18,31 +18,29 @@
       <div class="rounded-lg strikingbackground col min_height">
         <h1 class="text-center">Kevin Wong</h1>
         <img src="../docs/img/pic1.jpg" class="img-fluid img-thumbnail catleft" />
-        <a href="./index.html">
+
+        {% for page in pages %}
+        <a href="{{ page.output }}">
           <p>
-            <button type="button" class="btn buttoncss {{blog_nav_class}}">
-              Blog <i class="fas fa-satellite"></i>
+            <button type="button" class="btn buttoncss 
+            
+            {% if page.title ==  title  %}
+            active
+            {% else %}
+            pass
+            {% endif %}
+
+            ">
+              {{ page.title }} <i class="fas fa-cat"></i>
             </button>
           </p>
         </a>
-        <a href="./projects.html">
-          <p>
-            <button type="button" class="btn buttoncss {{project_nav_class}}">
-              Projects <i class="fas fa-meteor"></i>
-            </button>
-          </p>
-        </a>
-        <a href="./about.html">
-          <p>
-            <button type="button" class="btn buttoncss {{about_nav_class}}">
-              About <i class="fas fa-space-shuttle"></i>
-            </button>
-          </p>
-        </a>
+        {% endfor %}
+
       </div>
       <!-- end of left side panel -->
       <!-- replace content with contents of each individual page using python script-->
-      {{ content  }}
+      {{ content }}
       <!-- start of bottom -->
     </div>
   </div>
@@ -54,6 +52,6 @@
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<p class="buttoncss">© 2020-{{year}}</p>
+<p class="buttoncss">© 2020-{{ year }}</p>
 
 </html>

@@ -1,25 +1,28 @@
 import datetime
+import glob
+import os
+
+# array of files in content dir
+
 
 y = datetime.datetime.now().strftime('%Y')
 
 def main():
-    pages = [
-        {
-            "filename": "content/index.html",
-            "output": "docs/index.html",
-            "title": "Blog",
-        },
-        {
-            "filename": "content/about.html",
-            "output": "docs/about.html",
-            "title": "About Me",
-        },
-        {
-            "filename": "content/projects.html",
-            "output": "docs/projects.html",
-            "title": "My Projects",
-        },
-    ]   
+    pages = []
+# Phase 1 - Auto-discovery of content files
+    all_html_files = glob.glob("content/*.html")
+
+    for page in all_html_files:
+        file_name = os.path.basename(page)
+        print(file_name)
+        name_only, extension = os.path.splitext(file_name)
+        print(name_only, extension)
+        pages.append({
+            "filename": "content/" + file_name,
+            "title": name_only,
+            "output": "docs/" + file_name
+        })
+    print(pages)
 
     for page in pages:
         almost_finished_page = apply_template(page['filename'])
@@ -70,6 +73,3 @@ def output_file(destination, page):
     open(destination, 'w+').write(page)
 
 main()
-
-
-

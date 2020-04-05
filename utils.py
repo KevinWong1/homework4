@@ -30,9 +30,6 @@ def main():
             content=content_page,
             year=str(year),
             pages=pages,
-            is_ready=True
         )
         open("docs/"+file_name,"w+").write(results)
 
-
-main()

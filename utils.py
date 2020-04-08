@@ -3,8 +3,6 @@ import glob
 import os
 from jinja2 import Template
 
-year = datetime.datetime.now().strftime('%Y')
-
 def main():
     pages = []
 # Auto-discovery of content files
@@ -19,6 +17,7 @@ def main():
             "output": file_name
         })
 # Create final pages using content files with jinja2 templating
+    year = datetime.datetime.now().strftime('%Y')
     for page in all_html_files:
         file_name = os.path.basename(page)
         name_only, extension = os.path.splitext(file_name)

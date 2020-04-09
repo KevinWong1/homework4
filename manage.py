@@ -11,6 +11,6 @@ try:
         print("New page was specified")
     # TODO: Do something here...
     else:
-        print("Please specify ’build’ or ’new’ after manage.py"")
+        print("Please specify ’build’ or ’new’ after manage.py")
 except:
     print("Please specify ’build’ or ’new’ after manage.py")

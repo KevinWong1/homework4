@@ -20,7 +20,7 @@
         <img src="../docs/img/pic1.jpg" class="img-fluid img-thumbnail catleft" />
 
         {% for page in pages %}
-        <a href="{{ page.output }}">
+        <a href="{{ page.title }}.html">
           <p>
             <button type="button" class="btn buttoncss 
             
